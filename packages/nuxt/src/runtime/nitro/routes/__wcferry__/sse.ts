@@ -1,5 +1,5 @@
-import { createEventStream, defineEventHandler } from 'h3'
 import { colors } from 'consola/utils'
+import { createEventStream, defineEventHandler } from 'h3'
 import { useBot } from '../../../server/utils/useBot'
 
 export default defineEventHandler(async (event) => {

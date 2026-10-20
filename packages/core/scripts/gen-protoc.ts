@@ -1,7 +1,7 @@
 import { fileURLToPath } from 'node:url'
-import { dirname, join, resolve } from 'pathe'
-import fg from 'fast-glob'
 import { $ } from 'execa'
+import fg from 'fast-glob'
+import { dirname, join, resolve } from 'pathe'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const $$ = $({ cwd: resolve(__dirname, '../') })

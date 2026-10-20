@@ -1,6 +1,6 @@
+import type { PuppetContact } from '../types'
 import * as PUPPET from 'wechaty-puppet'
 import { xmlToJson } from '../utils'
-import type { PuppetContact } from '../types'
 
 interface VerifyXmlSchema {
   msg: {

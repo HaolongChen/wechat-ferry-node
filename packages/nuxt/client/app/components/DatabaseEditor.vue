@@ -1,21 +1,21 @@
 <!-- eslint-disable @typescript-eslint/no-explicit-any -->
 <script setup lang="ts">
-import { languages } from 'monaco-editor/esm/vs/editor/editor.api'
-import 'monaco-sql-languages/esm/languages/mysql/mysql.contribution'
-import MySQLWorker from 'monaco-sql-languages/esm/languages/mysql/mysql.worker?worker'
-import EditorWorker from 'monaco-editor/esm/vs/editor/editor.worker?worker'
-
+import type { MonacoEditor } from '#components'
 import type {
   CompletionService,
   ICompletionItem,
 } from 'monaco-sql-languages'
+import type { DatabaseListItem } from '~~/types/database'
+import { languages } from 'monaco-editor/esm/vs/editor/editor.api'
+
+import EditorWorker from 'monaco-editor/esm/vs/editor/editor.worker?worker'
 import {
   EntityContextType,
   LanguageIdEnum,
   setupLanguageFeatures,
 } from 'monaco-sql-languages'
-import type { DatabaseListItem } from '~~/types/database'
-import type { MonacoEditor } from '#components'
+import MySQLWorker from 'monaco-sql-languages/esm/languages/mysql/mysql.worker?worker'
+import 'monaco-sql-languages/esm/languages/mysql/mysql.contribution'
 
 (globalThis as any).MonacoEnvironment = {
   getWorker(_: any, label: string) {

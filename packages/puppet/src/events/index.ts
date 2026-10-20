@@ -1,11 +1,11 @@
-import { roomTopicParser } from './room-topic-event'
-import { EventType, addEventParser } from './events'
+import { addEventParser, EventType } from './events'
+import { friendShipParser } from './friendship-event'
 import { messageParser } from './message-event'
+import { postParser } from './post-event'
 import { roomInviteParser } from './room-invite-event'
 import { roomJoinParser } from './room-join-event'
 import { roomLeaveParser } from './room-leave-event'
-import { friendShipParser } from './friendship-event'
-import { postParser } from './post-event'
+import { roomTopicParser } from './room-topic-event'
 
 addEventParser(EventType.Post, postParser)
 addEventParser(EventType.Friendship, friendShipParser)

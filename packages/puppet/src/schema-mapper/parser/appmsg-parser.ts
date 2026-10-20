@@ -1,9 +1,9 @@
+import type { PuppetMessage } from '../../types'
+import type { MessageParser, MessageParserContext } from './parser'
+import { WechatAppMessageType, type WxMsg } from '@wechatferry/core'
 import * as PUPPET from 'wechaty-puppet'
 import { log } from 'wechaty-puppet'
-import { WechatAppMessageType, type WxMsg } from '@wechatferry/core'
-import type { PuppetMessage } from '../../types'
 import { parseAppmsgMessagePayload } from '../../messages'
-import type { MessageParser, MessageParserContext } from './parser'
 
 export const appMsgParser: MessageParser = async (message: WxMsg, ret: PuppetMessage, context: MessageParserContext) => {
   if (ret.type !== PUPPET.types.Message.Attachment) {

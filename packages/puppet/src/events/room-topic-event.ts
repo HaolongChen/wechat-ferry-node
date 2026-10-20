@@ -1,8 +1,8 @@
 import type { WechatferryAgentEventMessage } from '@wechatferry/agent'
 import type * as PUPPET from 'wechaty-puppet'
+import type { EventPayload } from './events'
 import { executeRunners, isRoomId, isRoomOps } from '../utils'
 import { parseTextWithRegexList } from '../utils/regex'
-import type { EventPayload } from './events'
 
 const OTHER_CHANGE_TOPIC_REGEX_LIST = [
   /^"(.+)"修改群名为“(.+)”$/,

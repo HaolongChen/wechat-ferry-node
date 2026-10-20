@@ -1,5 +1,5 @@
-import { matchers, talkers } from 'wechaty-plugin-contrib'
 import { log, types } from 'wechaty'
+import { matchers, talkers } from 'wechaty-plugin-contrib'
 import { defineWechatyPlugin } from '../utils'
 
 export interface RoomKickOptions {

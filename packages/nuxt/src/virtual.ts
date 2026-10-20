@@ -1,8 +1,8 @@
 import type { Nitro } from 'nitropack'
 import type { Nuxt } from 'nuxt/schema'
+import fb from 'fast-glob'
 import { basename, extname, join, relative, resolve } from 'pathe'
 import { camelCase } from 'scule'
-import fb from 'fast-glob'
 
 interface FileInfo { path: string, fullPath: string }
 export const GLOB_SCAN_PATTERN = '**/*.{js,mjs,cjs,ts,mts,cts,tsx,jsx}'

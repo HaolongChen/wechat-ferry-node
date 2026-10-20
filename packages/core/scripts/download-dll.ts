@@ -1,7 +1,7 @@
 import * as url from 'node:url'
 import { downloadRelease } from '@terascope/fetch-github-release'
-import { resolve } from 'pathe'
 import fse from 'fs-extra'
+import { resolve } from 'pathe'
 import { wcferry } from '../package.json'
 
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url))

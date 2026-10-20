@@ -1,4 +1,4 @@
-import { type Storage, type StorageValue, prefixStorage } from 'unstorage'
+import { prefixStorage, type Storage, type StorageValue } from 'unstorage'
 
 export type PrefixStorage<T extends StorageValue> = ReturnType<typeof createPrefixStorage<T>>
 

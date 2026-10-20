@@ -1,9 +1,9 @@
-import { tmpdir } from 'node:os'
+import type { FileBoxInterface } from 'file-box'
 import { Buffer } from 'node:buffer'
 import { existsSync } from 'node:fs'
-import type { FileBoxInterface } from 'file-box'
-import { join } from 'pathe'
+import { tmpdir } from 'node:os'
 import { ensureDir } from 'fs-extra'
+import { join } from 'pathe'
 
 export async function saveFileBox(file: FileBoxInterface, dir = tmpdir()) {
   const dirPath = join(dir, 'wechatferry')

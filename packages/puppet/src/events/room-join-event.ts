@@ -1,10 +1,10 @@
-import { setTimeout } from 'node:timers/promises'
 import type { WechatferryAgentEventMessage } from '@wechatferry/agent'
 import type * as PUPPET from 'wechaty-puppet'
-import { executeRunners, isRoomId, isRoomOps } from '../utils'
-import { parseTextWithRegexList } from '../utils/regex'
 import type { WechatferryPuppet } from '../puppet'
 import type { EventPayload } from './events'
+import { setTimeout } from 'node:timers/promises'
+import { executeRunners, isRoomId, isRoomOps } from '../utils'
+import { parseTextWithRegexList } from '../utils/regex'
 
 const YOU_INVITE_OTHER_REGEX_LIST = [
   /^你邀请"(.+)"加入了群聊/,

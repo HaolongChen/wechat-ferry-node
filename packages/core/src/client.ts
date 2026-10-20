@@ -1,12 +1,12 @@
-import { EventEmitter } from 'node:events'
-import { Buffer } from 'node:buffer'
-import { Socket } from '@rustup/nng'
 import type { FileBox, FileBoxInterface } from 'file-box'
-import { useLogger } from '@wechatferry/logger'
 import type { WechatferrySDKImpl } from './sdk'
-import { WechatferrySDK } from './sdk'
-import { wcf } from './proto/wcf'
 import type { Contact, DbTable, UserInfo, WechatferryOptions, WechatferryUserOptions, WxMsg } from './types'
+import { Buffer } from 'node:buffer'
+import { EventEmitter } from 'node:events'
+import { Socket } from '@rustup/nng'
+import { useLogger } from '@wechatferry/logger'
+import { wcf } from './proto/wcf'
+import { WechatferrySDK } from './sdk'
 import { parseDbField, saveFileBox } from './utils'
 
 export function resolvedWechatferryOptions(options: WechatferryUserOptions): WechatferryOptions {
@@ -48,7 +48,8 @@ export class Wechatferry extends EventEmitter<WechatferryEventMap> {
       this.socket.connect(this.sdk.cmdUrl)
       this.sdk.on('message', msg => this.emit('message', msg.toObject() as WxMsg))
       this.startRecvMessage()
-    } catch (error) {
+    }
+    catch (error) {
       logger.error('Error in start:', error)
       this.stop()
       return

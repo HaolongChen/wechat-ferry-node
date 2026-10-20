@@ -29,9 +29,6 @@
   "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "bin": {
-    "mcp-server-wechat": "bin/mcp-server-wechat.js"
-  },
   "typesVersions": {
     "*": {
       "*": [
@@ -40,9 +37,12 @@
       ]
     }
   },
+  "bin": {
+    "mcp-server-wechat": "bin/mcp-server-wechat.js"
+  },
   "files": [
-    "dist",
-    "bin"
+    "bin",
+    "dist"
   ],
   "scripts": {
     "build": "unbuild",
@@ -52,9 +52,9 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.9.0",
+    "@wechatferry/agent": "workspace:*",
     "@wechatferry/logger": "workspace:*",
     "@wechatferry/puppet": "workspace:*",
-    "@wechatferry/agent": "workspace:*",
     "wechaty": "^1.20.2",
     "zod": "^3.24.2"
   }

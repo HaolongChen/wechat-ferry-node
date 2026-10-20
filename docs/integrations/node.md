@@ -111,12 +111,12 @@ sdk.startRecvMessage()
 
 ::: code-group
 ```ts twoslash [mysdk.ts]
-import EventEmitter from 'node:events'
-import type { Buffer } from 'node:buffer'
-import type { WechatferrySDKEventMap, WechatferrySDKImpl } from '@wechatferry/core'
-import { wcf } from '@wechatferry/core'
-import { Socket } from '@rustup/nng'
 import type { MessageRecvDisposable } from '@rustup/nng'
+import type { WechatferrySDKEventMap, WechatferrySDKImpl } from '@wechatferry/core'
+import type { Buffer } from 'node:buffer'
+import EventEmitter from 'node:events'
+import { Socket } from '@rustup/nng'
+import { wcf } from '@wechatferry/core'
 
 export class MySDK extends EventEmitter<WechatferrySDKEventMap> implements WechatferrySDKImpl {
   private messageRecvDisposable?: MessageRecvDisposable

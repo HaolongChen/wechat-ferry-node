@@ -1,18 +1,19 @@
-import { setTimeout as sleep } from 'node:timers/promises'
 import type { WechatferryAgentChatRoom, WechatferryAgentChatRoomMember, WechatferryAgentContact, WechatferryAgentEventMessage } from '@wechatferry/agent'
-import { WechatferryAgent } from '@wechatferry/agent'
-import * as PUPPET from 'wechaty-puppet'
-import { createStorage } from 'unstorage'
-import { log } from 'wechaty-puppet'
-import { FileBox, type FileBoxInterface } from 'file-box'
-import localPackageJson from '../package.json'
+import type { CacheManager } from './cache-manager'
 import type { PuppetContact, PuppetWcferryOptions, PuppetWcferryUserOptions } from './types'
-import { getMentionText, isRoomId, mentionTextParser } from './utils'
-import { UnstorageCacheManager, CacheManager } from './cache-manager'
+import { setTimeout as sleep } from 'node:timers/promises'
+import { WechatferryAgent } from '@wechatferry/agent'
+import { FileBox, type FileBoxInterface } from 'file-box'
+import pRetry from 'p-retry'
+import { createStorage } from 'unstorage'
+import * as PUPPET from 'wechaty-puppet'
+import { log } from 'wechaty-puppet'
+import localPackageJson from '../package.json'
+import { UnstorageCacheManager } from './cache-manager'
+import { EventType, parseEvent } from './events'
 import { parseAppmsgMessagePayload, parseContactCardMessagePayload, parseEmotionMessagePayload, parseMiniProgramMessagePayload, parseTimelineMessagePayload } from './messages'
 import { wechatferryContactToWechaty, wechatferryDBMessageToEventMessage, wechatferryMessageToWechaty, wechatferryRoomMemberToWechaty, wechatferryRoomToWechaty, wechatyContactToWechatferry } from './schema-mapper'
-import { EventType, parseEvent } from './events'
-import pRetry from 'p-retry';
+import { getMentionText, isRoomId, mentionTextParser } from './utils'
 
 export function resolvePuppetWcferryOptions(userOptions: PuppetWcferryUserOptions): PuppetWcferryOptions {
   return {
@@ -27,7 +28,7 @@ export class WechatferryPuppet extends PUPPET.Puppet {
   agent: WechatferryAgent
   private cacheManager: CacheManager
   private heartBeatTimer?: ReturnType<typeof setTimeout>
-  private _authQrCode: string = ""
+  private _authQrCode: string = ''
 
   constructor(options: PuppetWcferryUserOptions = {}) {
     super()
@@ -82,8 +83,9 @@ export class WechatferryPuppet extends PUPPET.Puppet {
     if (!this._authQrCode) {
       this._authQrCode = this.agent.wcf.refreshQrcode()
     }
-    return this._authQrCode;  
+    return this._authQrCode
   }
+
   override set authQrCode(value: string) {
     this._authQrCode = this.agent.wcf.refreshQrcode()
   }
@@ -918,11 +920,12 @@ export class WechatferryPuppet extends PUPPET.Puppet {
     }
 
     return pRetry(run, {
-      retries: 3
+      retries: 3,
     })
   }
+
   /**
-   * 
+   *
    * 更新群聊缓存
    * @param roomId 群聊 id
    */
@@ -941,7 +944,7 @@ export class WechatferryPuppet extends PUPPET.Puppet {
     }
 
     return pRetry(run, {
-      retries: 3
+      retries: 3,
     })
   }
 
@@ -963,7 +966,7 @@ export class WechatferryPuppet extends PUPPET.Puppet {
       return members
     }
     return pRetry(run, {
-      retries: 3
+      retries: 3,
     })
   }
 
@@ -988,7 +991,7 @@ export class WechatferryPuppet extends PUPPET.Puppet {
     }
 
     return pRetry(run, {
-      retries: 3
+      retries: 3,
     })
   }
 

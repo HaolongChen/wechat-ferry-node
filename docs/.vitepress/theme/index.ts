@@ -1,9 +1,9 @@
 // https://vitepress.dev/guide/custom-theme
 import type { EnhanceAppContext, Theme } from 'vitepress'
+import TwoslashFloatingVue from '@shikijs/vitepress-twoslash/client'
 import DefaultTheme from 'vitepress/theme'
 import 'uno.css'
 import 'virtual:group-icons.css'
-import TwoslashFloatingVue from '@shikijs/vitepress-twoslash/client'
 import '@shikijs/vitepress-twoslash/style.css'
 import './style.css'
 

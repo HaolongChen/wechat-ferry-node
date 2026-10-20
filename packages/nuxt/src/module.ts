@@ -1,9 +1,9 @@
-import { addServerScanDir, createResolver, defineNuxtModule } from '@nuxt/kit'
-import { onDevToolsInitialized } from '@nuxt/devtools-kit'
 import type { ScannedWcferrySkill } from '../types'
-import { setupVirtual } from './virtual'
+import { onDevToolsInitialized } from '@nuxt/devtools-kit'
+import { addServerScanDir, createResolver, defineNuxtModule } from '@nuxt/kit'
 import { setupDevToolsUI } from './devtools'
 import { setupRPC } from './server-rpc'
+import { setupVirtual } from './virtual'
 
 export interface ModuleOptions {
   /**

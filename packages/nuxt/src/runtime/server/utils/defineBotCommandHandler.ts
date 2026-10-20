@@ -1,6 +1,6 @@
 import type { Message } from 'wechaty'
-import { defineBotMessageHandler } from './defineBotMessageHandler'
 import type { BotHandler } from './defineBotHandler'
+import { defineBotMessageHandler } from './defineBotMessageHandler'
 
 export interface CommandHandlerPayload {
   message: Message

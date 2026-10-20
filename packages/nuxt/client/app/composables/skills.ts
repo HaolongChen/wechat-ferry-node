@@ -1,6 +1,6 @@
-import { useDevtoolsClient } from '@nuxt/devtools-kit/iframe-client'
-import type { ClientFunctions, ServerFunctions } from '../../../types'
 import type { AsyncDataOptions } from '#app'
+import type { ClientFunctions, ServerFunctions } from '../../../types'
+import { useDevtoolsClient } from '@nuxt/devtools-kit/iframe-client'
 
 export function useRpc() {
   const client = useDevtoolsClient()

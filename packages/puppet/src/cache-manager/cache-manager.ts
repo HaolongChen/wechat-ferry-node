@@ -1,79 +1,79 @@
-import type { WechatferryAgentChatRoom, WechatferryAgentChatRoomMember, WechatferryAgentContact, WechatferryAgentEventMessage } from "@wechatferry/agent"
+import type { WechatferryAgentChatRoom, WechatferryAgentChatRoomMember, WechatferryAgentContact, WechatferryAgentEventMessage } from '@wechatferry/agent'
 import type * as PUPPET from 'wechaty-puppet'
 
-type MaybePromise<T> = T | Promise<T>;
-type Nullable<T> = T | null | undefined;
+type MaybePromise<T> = T | Promise<T>
+type Nullable<T> = T | null | undefined
 
 export interface CacheManager {
 
-    // #region  Message
-    getMessage(messageId: string): MaybePromise<Nullable<WechatferryAgentEventMessage>>
+  // #region  Message
+  getMessage: (messageId: string) => MaybePromise<Nullable<WechatferryAgentEventMessage>>
 
-    setMessage(messageId: string, payload: WechatferryAgentEventMessage): MaybePromise<void>
+  setMessage: (messageId: string, payload: WechatferryAgentEventMessage) => MaybePromise<void>
 
-    hasMessage(messageId: string): MaybePromise<boolean>
+  hasMessage: (messageId: string) => MaybePromise<boolean>
 
-    // #region Friendship
+  // #region Friendship
 
-    getFriendship(friendshipId: string): MaybePromise<Nullable<PUPPET.payloads.Friendship>>
+  getFriendship: (friendshipId: string) => MaybePromise<Nullable<PUPPET.payloads.Friendship>>
 
-    setFriendship(friendshipId: string, payload: PUPPET.payloads.Friendship): MaybePromise<void>
+  setFriendship: (friendshipId: string, payload: PUPPET.payloads.Friendship) => MaybePromise<void>
 
-    // #region Contact
+  // #region Contact
 
-    getContact(contactId: string): MaybePromise<Nullable<WechatferryAgentContact>>
+  getContact: (contactId: string) => MaybePromise<Nullable<WechatferryAgentContact>>
 
-    setContact(contactId: string, payload: WechatferryAgentContact): MaybePromise<void>
+  setContact: (contactId: string, payload: WechatferryAgentContact) => MaybePromise<void>
 
-    deleteContact(contactId: string): MaybePromise<void>
+  deleteContact: (contactId: string) => MaybePromise<void>
 
-    getContactIds(): MaybePromise<string[]>
+  getContactIds: () => MaybePromise<string[]>
 
-    getAllContacts(): MaybePromise<WechatferryAgentContact[]>
+  getAllContacts: () => MaybePromise<WechatferryAgentContact[]>
 
-    hasContact(contactId: string): MaybePromise<boolean>
+  hasContact: (contactId: string) => MaybePromise<boolean>
 
-    getContactCount(): MaybePromise<number>
+  getContactCount: () => MaybePromise<number>
 
-    setContactList(payload: WechatferryAgentContact[]): MaybePromise<void>
+  setContactList: (payload: WechatferryAgentContact[]) => MaybePromise<void>
 
-    // #region Room
+  // #region Room
 
-    getRoom(roomId: string): MaybePromise<Nullable<WechatferryAgentChatRoom>>
+  getRoom: (roomId: string) => MaybePromise<Nullable<WechatferryAgentChatRoom>>
 
-    setRoom(roomId: string, payload: WechatferryAgentChatRoom): MaybePromise<void>
+  setRoom: (roomId: string, payload: WechatferryAgentChatRoom) => MaybePromise<void>
 
-    deleteRoom(roomId: string): MaybePromise<void>
+  deleteRoom: (roomId: string) => MaybePromise<void>
 
-    getRoomIds(): MaybePromise<string[]>
+  getRoomIds: () => MaybePromise<string[]>
 
-    getRoomCount(): MaybePromise<number>
+  getRoomCount: () => MaybePromise<number>
 
-    hasRoom(roomId: string): MaybePromise<boolean>
+  hasRoom: (roomId: string) => MaybePromise<boolean>
 
-    setRoomList(payload: WechatferryAgentChatRoom[]): MaybePromise<void>
+  setRoomList: (payload: WechatferryAgentChatRoom[]) => MaybePromise<void>
 
-    // #region Room Invitation
+  // #region Room Invitation
 
-    getRoomInvitation(messageId: string): MaybePromise<Nullable<PUPPET.payloads.RoomInvitation>>
+  getRoomInvitation: (messageId: string) => MaybePromise<Nullable<PUPPET.payloads.RoomInvitation>>
 
-    setRoomInvitation(messageId: string, payload: PUPPET.payloads.RoomInvitation): MaybePromise<void>
+  setRoomInvitation: (messageId: string, payload: PUPPET.payloads.RoomInvitation) => MaybePromise<void>
 
-    deleteRoomInvitation(messageId: string): MaybePromise<void>
+  deleteRoomInvitation: (messageId: string) => MaybePromise<void>
 
-    // #endregion
+  // #endregion
 
-    // #region Room Member
+  // #region Room Member
 
-    getRoomMember(roomId: string, contactId: string): MaybePromise<Nullable<WechatferryAgentChatRoomMember>>
+  getRoomMember: (roomId: string, contactId: string) => MaybePromise<Nullable<WechatferryAgentChatRoomMember>>
 
-    setRoomMember(roomId: string, contactId: string, payload: WechatferryAgentChatRoomMember): MaybePromise<void>
+  setRoomMember: (roomId: string, contactId: string, payload: WechatferryAgentChatRoomMember) => MaybePromise<void>
 
-    deleteRoomMember(roomId: string, contactId: string): MaybePromise<void>
+  deleteRoomMember: (roomId: string, contactId: string) => MaybePromise<void>
 
-    setRoomMemberList(roomId: string, payload: WechatferryAgentChatRoomMember[]): MaybePromise<void>
+  setRoomMemberList: (roomId: string, payload: WechatferryAgentChatRoomMember[]) => MaybePromise<void>
 
-    getRoomMemberList(roomId: string): MaybePromise<WechatferryAgentChatRoomMember[]>
+  getRoomMemberList: (roomId: string) => MaybePromise<WechatferryAgentChatRoomMember[]>
 
-    getRoomMemberIds(roomId: string): MaybePromise<string[]>
+  getRoomMemberIds: (roomId: string) => MaybePromise<string[]>
 }

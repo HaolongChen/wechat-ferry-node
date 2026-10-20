@@ -1,7 +1,7 @@
-import type { Nitro } from 'nitropack'
-import { debounce } from 'perfect-debounce'
 import type { NuxtDevtoolsServerContext, ServerFunctions } from '@nuxt/devtools-kit/types'
+import type { Nitro } from 'nitropack'
 import type { ScannedWcferrySkill } from '~/types'
+import { debounce } from 'perfect-debounce'
 
 export function setupServerSkillsRPC({ nuxt, refresh }: NuxtDevtoolsServerContext) {
   let nitro: Nitro

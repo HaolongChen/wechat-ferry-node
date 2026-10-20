@@ -1,12 +1,11 @@
-import type { Storage } from 'unstorage'
+import type { WechatferryAgent } from '@wechatferry/agent'
 import type {
   Contact,
   Message,
   Room,
   RoomMember,
 } from 'wechaty-puppet/payloads'
-import type { WechatferryAgent } from '@wechatferry/agent'
-import { CacheManager } from './cache-manager'
+import type { CacheManager } from './cache-manager'
 
 export interface PuppetRoom extends Room {
   announce: string

@@ -1,9 +1,9 @@
 import type { WechatferryAgentEventMessage } from '@wechatferry/agent'
-import * as PUPPET from 'wechaty-puppet'
-import { WechatMessageType } from '@wechatferry/core'
 import type { WechatferryPuppet } from '../puppet'
-import { parseVerifyMessagePayload } from '../messages/verify'
 import type { EventPayload } from './events'
+import { WechatMessageType } from '@wechatferry/core'
+import * as PUPPET from 'wechaty-puppet'
+import { parseVerifyMessagePayload } from '../messages/verify'
 
 const FRIENDSHIP_CONFIRM_REGEX_LIST = [
   /^You have added (.+) as your WeChat contact. Start chatting!$/,

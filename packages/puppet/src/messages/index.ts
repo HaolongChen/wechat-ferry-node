@@ -1,5 +1,5 @@
 export * from './appmsg'
+export * from './contact-card'
 export * from './emotion'
 export * from './miniprogram'
-export * from './contact-card'
 export * from './timeline'

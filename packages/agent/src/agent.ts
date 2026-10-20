@@ -1,17 +1,16 @@
+import type { Knex } from 'knex'
+import type { MSG } from './knex'
+import type { WechatferryAgentChatRoom, WechatferryAgentChatRoomMember, WechatferryAgentContact, WechatferryAgentContactTag, WechatferryAgentDBMessage, WechatferryAgentEventMap, WechatferryAgentEventMessage, WechatferryAgentUserOptions } from './types'
 import EventEmitter from 'node:events'
+import { existsSync } from 'node:fs'
+import os from 'node:os'
 import process from 'node:process'
 import { setTimeout } from 'node:timers/promises'
-import os from 'node:os'
-import { existsSync } from 'node:fs'
-import { Buffer } from 'node:buffer'
-import { WechatMessageType, type Wechatferry, type wcf } from '@wechatferry/core'
-import { FileBox, type FileBoxInterface } from 'file-box'
-import type { Knex } from 'knex'
+import { type wcf, type Wechatferry, WechatMessageType } from '@wechatferry/core'
 import { useLogger } from '@wechatferry/logger'
-import type { WechatferryAgentChatRoom, WechatferryAgentChatRoomMember, WechatferryAgentContact, WechatferryAgentContactTag, WechatferryAgentDBMessage, WechatferryAgentEventMap, WechatferryAgentEventMessage, WechatferryAgentUserOptions } from './types'
+import { FileBox, type FileBoxInterface } from 'file-box'
+import { useMicroMsgDbQueryBuilder, useMSG0DbQueryBuilder } from './knex'
 import { decodeBytesExtra, parseBytesExtra, resolvedWechatferryAgentOptions } from './utils'
-import type { MSG } from './knex'
-import { useMSG0DbQueryBuilder, useMicroMsgDbQueryBuilder } from './knex'
 
 const logger = useLogger('agent')
 
@@ -469,7 +468,8 @@ export class WechatferryAgent extends EventEmitter<WechatferryAgentEventMap> {
         knex.ref('PYInitial').as('pinYinInitial'),
         knex.ref('RemarkPYInitial').as('remarkPinYinInitial'),
         knex.ref('LabelIDList').as('labelIdList'),
-      ).leftJoin(
+      )
+      .leftJoin(
         'ContactHeadImgUrl',
         'Contact.UserName',
         'ContactHeadImgUrl.usrName',
@@ -619,7 +619,9 @@ export class WechatferryAgent extends EventEmitter<WechatferryAgentEventMap> {
         knex.ref('BytesExtra').as('bytesExtra'),
         knex.ref('CompressContent').as('compressContent'),
       )
-      .where('IsSender', 1).orderBy('CreateTime', 'desc').limit(1)
+      .where('IsSender', 1)
+      .orderBy('CreateTime', 'desc')
+      .limit(1)
     if (localId)
       sql.where('localId', localId)
     const data = this.dbSqlQueryMSG<Awaited<typeof sql>>(sql, -1)[0]

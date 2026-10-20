@@ -1,10 +1,10 @@
-import type * as PUPPET from 'wechaty-puppet'
-import { WechatAppMessageType } from '@wechatferry/core'
 import type { WechatferryAgentEventMessage } from '@wechatferry/agent'
+import type * as PUPPET from 'wechaty-puppet'
 import type { AppMessagePayload } from '../messages'
-import { parseAppmsgMessagePayload } from '../messages'
 import type { WechatferryPuppet } from '../puppet'
 import type { EventPayload } from './events'
+import { WechatAppMessageType } from '@wechatferry/core'
+import { parseAppmsgMessagePayload } from '../messages'
 
 const ROOM_OTHER_INVITE_TITLE_ZH = [/邀请你加入群聊/]
 const ROOM_OTHER_INVITE_TITLE_EN = [/Group Chat Invitation/]

@@ -1,9 +1,9 @@
 import type { WxMsg } from '@wechatferry/core'
 import type * as PUPPET from 'wechaty-puppet'
-import { log } from 'wechaty-puppet'
-import { xmlToJson } from '../../utils'
 import type { PuppetMessage } from '../../types'
 import type { MessageParser, MessageParserContext } from './parser'
+import { log } from 'wechaty-puppet'
+import { xmlToJson } from '../../utils'
 
 export const roomParser: MessageParser = async (message: WxMsg, ret: PuppetMessage, context: MessageParserContext) => {
   if (message.is_group) {

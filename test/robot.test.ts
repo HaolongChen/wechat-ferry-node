@@ -1,9 +1,9 @@
-import { WechatyBuilder } from 'wechaty'
 import { expect, it } from 'vitest'
-import { WechatferryPuppet } from '../packages/puppet/src'
+import { WechatyBuilder } from 'wechaty'
 import { WechatferryAgent } from '../packages/agent/src'
-import { createSafeModePuppet } from '../packages/plugins/src'
 import { Wechatferry } from '../packages/core/src'
+import { createSafeModePuppet } from '../packages/plugins/src'
+import { WechatferryPuppet } from '../packages/puppet/src'
 
 const core = new Proxy(new Wechatferry(), {
   get(target, prop, receiver) {

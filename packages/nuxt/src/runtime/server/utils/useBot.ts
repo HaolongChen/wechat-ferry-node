@@ -1,8 +1,8 @@
-import type { Message } from 'wechaty'
-import { WechatyBuilder } from 'wechaty'
-import type { ContactInterface, RoomInterface, RoomInvitationInterface, WechatyInterface } from 'wechaty/impls'
 import type { Hookable } from 'hookable'
+import type { Message } from 'wechaty'
+import type { ContactInterface, RoomInterface, RoomInvitationInterface, WechatyInterface } from 'wechaty/impls'
 import { createHooks } from 'hookable'
+import { WechatyBuilder } from 'wechaty'
 import { useBotPuppet } from './useBotPuppet'
 
 export interface BotHooks {

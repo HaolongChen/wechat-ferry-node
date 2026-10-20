@@ -1,6 +1,6 @@
 import type { BotHandlerOptions } from './defineBotHandler'
-import { defineBotHandler } from './defineBotHandler'
 import type { BotHooks } from './useBot'
+import { defineBotHandler } from './defineBotHandler'
 
 type PickRoomKeys<T> = {
   [K in keyof T]: K extends `room${string}` ? K : never;

@@ -1,9 +1,9 @@
 import type { WechatferryAgentEventMessage } from '@wechatferry/agent'
 import type * as PUPPET from 'wechaty-puppet'
-import { executeRunners, isRoomId, isRoomOps } from '../utils'
-import { parseTextWithRegexList } from '../utils/regex'
 import type { WechatferryPuppet } from '../puppet'
 import type { EventPayload } from './events'
+import { executeRunners, isRoomId, isRoomOps } from '../utils'
+import { parseTextWithRegexList } from '../utils/regex'
 
 const YOU_REMOVE_OTHER_REGEX_LIST = [
   /^(你)将"(.+)"移出了群聊/,

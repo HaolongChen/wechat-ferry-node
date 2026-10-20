@@ -1,8 +1,8 @@
+import type { PuppetMessage } from '../../types'
+import type { MessageParser, MessageParserContext } from './parser'
 import { WechatMessageType, type WxMsg } from '@wechatferry/core'
 import * as PUPPET from 'wechaty-puppet'
 import { log } from 'wechaty-puppet'
-import type { PuppetMessage } from '../../types'
-import type { MessageParser, MessageParserContext } from './parser'
 
 const TypeMappings: { [key: number]: PUPPET.types.Message } = {
   [WechatMessageType.Moment]: PUPPET.types.Message.Post,

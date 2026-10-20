@@ -1,8 +1,8 @@
-import { existsSync } from 'node:fs'
-import type { Nuxt } from 'nuxt/schema'
 import type { Resolver } from '@nuxt/kit'
-import { useNuxt } from '@nuxt/kit'
+import type { Nuxt } from 'nuxt/schema'
 import type { ModuleOptions } from './module'
+import { existsSync } from 'node:fs'
+import { useNuxt } from '@nuxt/kit'
 
 const DEVTOOLS_UI_ROUTE = '/__wcferry__/devtools'
 const DEVTOOLS_UI_LOCAL_PORT = 3300

@@ -1,6 +1,6 @@
-import { type BotHooks, useBot } from './useBot'
 // @ts-expect-error untyped
 import { $global, $local } from '#internal/wcferry/middleware'
+import { type BotHooks, useBot } from './useBot'
 
 export type BotHooksKeys = keyof BotHooks
 

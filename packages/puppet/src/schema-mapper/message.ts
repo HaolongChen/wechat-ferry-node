@@ -1,5 +1,5 @@
-import type * as PUPPET from 'wechaty-puppet'
 import type { WechatferryAgentDBMessage, WechatferryAgentEventMessage } from '@wechatferry/agent'
+import type * as PUPPET from 'wechaty-puppet'
 import type { PuppetMessage } from '../types'
 import { isRoomId } from '../utils'
 import { executeMessageParsers } from './parser'
@@ -46,7 +46,8 @@ export function wechatferryDBMessageToEventMessage(message: WechatferryAgentDBMe
   const isSelf = message.isSender === 1
   // 若是群聊，则发送人是 message.talkerWxid
   // 若是私聊，且是自己，则发送人是 message.talkerWxid，否则发送人是 message.strTalker
-  const senderId = isRoom ? message.talkerWxid
+  const senderId = isRoom
+    ? message.talkerWxid
     : (isSelf ? message.talkerWxid : message.strTalker)
 
   return {

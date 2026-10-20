@@ -1,5 +1,5 @@
-import { beforeAll, expect, it } from 'vitest'
 import { FileBox } from 'file-box'
+import { beforeAll, expect, it } from 'vitest'
 import { WechatferryAgent } from '../packages/agent/src'
 
 // const core = new Proxy(new Wechatferry(), {

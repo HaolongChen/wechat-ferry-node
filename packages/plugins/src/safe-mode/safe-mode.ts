@@ -1,5 +1,5 @@
-import type * as PUPPET from 'wechaty-puppet'
 import type { Options } from 'p-throttle'
+import type * as PUPPET from 'wechaty-puppet'
 import pThrottle from 'p-throttle'
 
 interface SafeModeOptions {
